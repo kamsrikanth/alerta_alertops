@@ -16,7 +16,7 @@ Clone the GitHub repo and run:
 
 Or, to install remotely from GitHub run:
 
-    $ pip install git+https://github.com/kamsrikanth/Integrations
+    $ pip install git+https://github.com/alerta/alerta-contrib.git#subdirectory=plugins/alertops
 
 Note: If Alerta is installed in a python virtual environment then plugins
 need to be installed into the same environment for Alerta to dynamically
@@ -27,7 +27,7 @@ Configuration
 
 Add `alertops` to the list of enabled `PLUGINS` in `alertad.conf` server
 configuration file and set plugin-specific variable in the
-server configuration file or the environment variables:
+server configuration file (generally found at `etc/alertad.conf`) or the environment variables:
 
 The `AO_URL` variable is generated during integration configuration within the AlertOps console. This should be added to the server configuration file.
 

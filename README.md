@@ -31,15 +31,19 @@ server configuration file (generally found at `etc/alertad.conf`) or the environ
 
 The `AO_URL` variable is generated during integration configuration within the AlertOps console. This should be added to the server configuration file.
 
+In addition, the `ALERTOPS_ALLOWED_SERVICES` list should be added to the server configuration file with the list of services you wish to send to alertops. The plugin requires at least one service that resides in this field to be sent to AlertOps.
+
 ```python
 PLUGINS = ['alertops'] 
 AO_URL = ''  # default="Not configured"
+ALERTOPS_ALLOWED_SERVICES = []
 ```
 The `DASHBOARD_URL` setting should be configured in the server configuration file to link pushover messages to the Alerta console through the AlertOps webhook: 
 
 ```python
 DASHBOARD_URL = '' # default="Not Set"
 ```
+The plugin uses the last user to acknowledge or make a change and assigns it to the corresponding user within alertops.
 
 **Example**
 
@@ -47,6 +51,7 @@ DASHBOARD_URL = '' # default="Not Set"
 PLUGINS = ['reject', 'alertops']
 AO_URL = 'https://notify.alertops/POSTAlert/c8490f30-1r492-ceks85-c833els8f10cd/Alerta'
 DASHBOARD_URL = 'https://try.alerta.io'
+ALERTOPS_ALLOWED_SERVICES = ['web01']
 ```
 
 References
